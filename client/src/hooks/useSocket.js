@@ -6,7 +6,7 @@ const useSocket = (roomId) => {
 
   useEffect(() => {
     const newSocket = io("http://localhost:5000");
-    newSocket.emit("joinRoom", roomId);
+    newSocket.emit("joinGame", { roomId }); // Changed to joinGame and sent as object
     setSocket(newSocket);
     return () => newSocket.disconnect();
   }, [roomId]);
